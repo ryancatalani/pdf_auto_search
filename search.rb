@@ -17,20 +17,10 @@ def search(search_name, search_url, search_text)
 
 			mg_client = Mailgun::Client.new ENV['MAILGUN_API_KEY']
 
-			# message_params =  { from: ENV['EMAIL'],
-			#                     to:   ENV['EMAIL'],
-			#                     subject: "#{search_name} search found",
-			#                     text:    "Text '#{search_text}' found in PDF.",
-			#                     attachment: io
-			#                   }
-
-			io.rewind
-			mb = Mailgun::MessageBuilder.new
-			mb.from(ENV['EMAIL'])
-			mb.add_recipient(:to, ENV['EMAIL'])
-			mb.subject("#{search_name} search found")
-			mb.body_text("Text '#{search_text}' found in PDF.")
-			mb.add_attachment(io.path, "#{file_name}.pdf")
+			message_params =  { from: ENV['EMAIL'],
+			                    to:   ENV['EMAIL'],
+			                    subject: "#{search_name} search found",
+			                    text:    "Text '#{search_text}' found in PDF. Link: #{search_url}"			                  }
 
 			mg_client.send_message ENV['MAILGUN_DOMAIN'], mb
 
