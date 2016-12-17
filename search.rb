@@ -22,7 +22,7 @@ def search(search_name, search_url, search_text)
 			                    subject: "#{search_name} search found",
 			                    text:    "Text '#{search_text}' found in PDF. Link: #{search_url}"			                  }
 
-			mg_client.send_message ENV['MAILGUN_DOMAIN'], mb
+			mg_client.send_message ENV['MAILGUN_DOMAIN'], message_params
 
 		end
 	ensure
