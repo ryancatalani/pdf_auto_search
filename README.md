@@ -15,7 +15,9 @@ Example usage for a PDF url that changes, but can be found in a link on a certai
 rake "get_url_and_search[Search Title,http://lorem.com/ipsum.html,text to monitor,email@tonotify.com]"
 ```
 
-Uses [Mailgun](http://www.mailgun.com/). Can be used with Heroku and [Heroku Scheduler](https://elements.heroku.com/addons/scheduler).
+Uses [Mailgun](http://www.mailgun.com/). Must set `MAILGUN_API_KEY` and `MAILGUN_DOMAIN` environment variables.
+
+Can be used with Heroku and [Heroku Scheduler](https://elements.heroku.com/addons/scheduler).
 
 Released under the MIT License.
 
