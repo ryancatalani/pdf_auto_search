@@ -1,6 +1,15 @@
+require 'open-uri'
 require 'down'
 require 'pdf-reader'
 require 'mailgun'
+require 'nokogiri'
+
+def get_pdf_url(from_url)
+	doc = Nokogiri::HTML(open(from_url))
+	urls = doc.css('a').map{|a| a.attributes["href"].value rescue next}
+	pdf_urls = urls.select{|url| url.split('.').last == 'pdf' rescue false}
+	return pdf_urls.first
+end
 
 def search(search_name, search_url, search_text)
 
