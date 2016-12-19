@@ -5,6 +5,7 @@ GEM
     afm (0.2.2)
     domain_name (0.5.20161129)
       unf (>= 0.0.5, < 1.0.0)
+    down (2.3.8)
     hashery (2.1.2)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
@@ -43,6 +44,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  down
   mailgun-ruby (~> 1.1.2)
   pdf-reader
   rake
